@@ -50,6 +50,8 @@ public class Main {
 	 * @param list 文件列表
 	 */
 	static void findRepeat(final List<File> list){
+		// 标记是否路由名称重复
+		boolean isRepeated = false;
 		// 存放不重复的路由名称
 		List<String> noRepeatList = new ArrayList<String>();
 		for (File file : list) {
@@ -58,11 +60,14 @@ public class Main {
 				if (!noRepeatList.isEmpty() && noRepeatList.contains(name)) {
 					System.out.println("重复的路由名称是：  " + name);
 					print(findRepeatFile(list, name));
-					
+					isRepeated = true;
 				} else {
 					noRepeatList.add(name);
 				}
 			}
+		}
+		if (!isRepeated) {
+			System.out.println("路由名称没有重复。");
 		}
 	}
 	
