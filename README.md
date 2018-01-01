@@ -9,5 +9,60 @@ It is acknowledged that the specification of vue-router says router name must be
 
 However, there is a problem: The repeat router names are likely to happen when a front-end project is developed by many people and its vue-router configurations are deveded into a lot of js files.
 
-## 
+## How to use it ?
+
+Find config.xml, the content of config.xml may look like this:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<folders>
+    <folder>D:\your\folder_a</folder>
+    <folder>D:\your\folder_b</folder>
+</folders>
+```
+
+The content of folder tag is the path of folder where router file is. You can specify multiple folder paths. After save your changes, enter checkVueRouterNameRepeat tool directory in CMD. Execute commands:
+
+```
+java -jar checkVueRouterNameRepeat-0.0.1-SNAPSHOT.jar
+```
+
+If there is not any repeat router name, you can read tips as follow:
+
+```
+路由名称没有重复。
+```
+
+If there is some repeat router name, you can read tips as follow:
+
+```
+D:\sdf\config.xml
+重复的路由名称是：  guideBookTeacher
+D:\workspaceSet\vsc\front\src\routes\b\teacher.js
+```
+
+Attention: The vue-router syntax support of this tool is limited. The users should read the introduction of vue-router first. The code about vue-router should be written as follow:
+
+```
+{
+  path: 'test/:testId',
+  name: 'test',
+  // Some code...
+}
+```
+Please make sure that the `name` property is on a separate line.
+
+This tool has a limited support of commonts like `/* ... */`.
+
+
+
+
+
+对 /* ... */ 注释支持有限。请确保 /*在一行的行首，*/ 在一行的行尾。写成类似下面这种：
+
+{
+
+
+
+
 
