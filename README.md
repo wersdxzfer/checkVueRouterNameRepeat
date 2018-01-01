@@ -47,22 +47,22 @@ Attention: The vue-router syntax support of this tool is limited. The users shou
 {
   path: 'test/:testId',
   name: 'test',
-  // Some code...
+  // Some other codes...
 }
 ```
 Please make sure that the `name` property is on a separate line.
 
 This tool has a limited support of commonts like `/* ... */`.
+Please make sure `/*` is at the beginning of a line, 
+`*/` is at the end of a line. The code looks like:
 
-
-
-
-
-对 /* ... */ 注释支持有限。请确保 /*在一行的行首，*/ 在一行的行尾。写成类似下面这种：
-
+```
 {
-
-
-
-
-
+  path: 'test/:testId',
+  name: 'test',
+  /*
+  This is comments.
+  */
+  // Some other codes ...
+}
+```
